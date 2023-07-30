@@ -1,7 +1,6 @@
 class NLPApp:
-    
+    __database = {}
     def __init__(self):
-       self.__database = {}
        self.__first_menu()
 
     def __first_menu(self):
@@ -19,8 +18,16 @@ class NLPApp:
             exit()
             
     def __register(self):
-        print('register')
-
+        name=input('Enter name')
+        email=input('Enter email')
+        password=input('Enter password')
+        if email in NLPApp.__database:
+            print('email exist')
+        else:
+            NLPApp.__database[email]=[name,password]
+            print('registration done.')
+            print(NLPApp.__database)
+            self.__login()
 
     def __login(self):
         print('login')
