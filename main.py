@@ -16,6 +16,9 @@ class NLPApp:
             self.__login()
         else:
             exit()
+
+    def __second_menu(self):
+        pass
             
     def __register(self):
         name=input('Enter name')
@@ -30,7 +33,17 @@ class NLPApp:
             self.__login()
 
     def __login(self):
-        print('login')
+        email=input('enter email')
+        password=input('enter password')
+        if email in NLPApp.__database:
+            if NLPApp.__database[email][1]==password:
+                print('login successful')
+                self.__second_menu()
+            else:
+                print('wrong password.Try again')
+                self.__login()
+        else:
+            print('Not registered')
 
 
 obj=NLPApp()
